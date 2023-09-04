@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import useStyles from '../Header.style';
+import useStyles from './Header.style';
 
 const Header = () => {  
     const classes = useStyles();
