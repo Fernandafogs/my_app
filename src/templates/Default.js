@@ -1,27 +1,19 @@
+import React from 'react';
+import Header from '../partials/Header/Header';
 import Container from '@mui/material/Container';
-import { styled } from '@mui/material/styles';
-
-import Header from "../partials/Header/Header";
-
-
-const CustomContainer = styled(Container)(({ theme }) => ({
-  padding: '15px 0',
-  backgroundColor: 'red',
-}));
 
 const Default = ({ children }) => {
   return (
     <>
       <Header />
-      <CustomContainer>
+      <Container sx={{ padding: '15px 0' }}>
         {children}
-      </CustomContainer>
+      </Container>
     </>
   );
 }
 
 export default Default;
-
 
 //JSS - javascript styling system
 
@@ -50,5 +42,6 @@ const Default = ({children}) => {
 export default Default;
 */
 //código na versão atualizada
+
 
 
