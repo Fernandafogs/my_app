@@ -15,8 +15,8 @@ import Home from './pages/Home';
 
 const App = () => { 
 return (
-  <TemplateDefault>    
-    <Router>
+  <Router>
+    <TemplateDefault>
       <Switch>
         <Route path="/customers">
           <TemplatePage title="Clientes" Component={Customers} />
@@ -25,11 +25,10 @@ return (
           <TemplatePage title="Página Inicial" Component={Home} />
         </Route>
       </Switch>
-    </Router> 
-  </TemplateDefault>
+    </TemplateDefault>
+  </Router> 
+  
 );
 }
 
-export default App;
-
-
+export default App; 
