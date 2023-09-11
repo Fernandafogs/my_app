@@ -1,14 +1,15 @@
 import {
   BrowserRouter as Router,
   Switch, 
-  Route,
+  Route
 } from 'react-router-dom';
 
 import TemplateDefault from './templates/Default';
 import TemplatePage from './templates/Page';
 
 
-import Customers from './pages/Customers';
+import CustomersList from './pages/customers/List';
+import CustomersRegister from './pages/customers/Register';
 import Home from './pages/Home';
 
 
@@ -18,11 +19,14 @@ return (
   <Router>
     <TemplateDefault>
       <Switch>
+        <Route path="/customers/add">
+          <TemplatePage key="2" title="Cadastro de Clientes" Component={CustomersRegister} />
+        </Route>
         <Route path="/customers">
-          <TemplatePage title="Clientes" Component={Customers} />
+          <TemplatePage key="2" title="Lista de Clientes" Component={CustomersList} />
         </Route>
         <Route path="/">
-          <TemplatePage title="Página Inicial" Component={Home} />
+          <TemplatePage key="1" title="Página Inicial" Component={Home}  />
         </Route>
       </Switch>
     </TemplateDefault>
