@@ -22,6 +22,7 @@ const CustomerCard = ({
     avatar,
     className,
     onRemoveCustomer,
+    onEditCustomer,
 }) => {
 
     const [openModal, setOpenModal] = useState(false);
@@ -35,8 +36,12 @@ const CustomerCard = ({
         handleToggleOpenModal();
     }
 
-    const handleRemoveCustomer = ({id}) => {
+    const handleRemoveCustomer = () => {
         handleToggleOpenModal();
+    }
+
+    const handleEditCustomer = id => {
+        onEditCustomer(id);
     }
 
     return (
@@ -54,7 +59,7 @@ const CustomerCard = ({
                 />
 
                 <CardActions disableSpacing>
-                    <IconButton aria-label="editar cadastro">
+                    <IconButton aria-label="editar cadastro" onClick={() => handleEditCustomer(id)}>
                         <EditIcon />
                     </IconButton>
                     <IconButton aria-label="remover cadastro" onClick={handleRemoveCustomer}>
