@@ -6,34 +6,36 @@ import {
 
 import TemplateDefault from './templates/Default';
 import TemplatePage from './templates/Page';
-
+import TemplateClean from './templates/Clean';
 
 import CustomersList from './pages/customers/List';
 import CustomersEdit from './pages/customers/Edit';
 import CustomersRegister from './pages/customers/Register';
 import Home from './pages/Home';
-
-
+import Login from './pages/Login';
 
 const App = () => { 
 return (
   <Router>
-    <TemplateDefault>
-      <Switch>
-      <Route path="/customers/edit/:id">
-          <TemplatePage key="2" title="Editar Clientes" Component={CustomersEdit} />
+    <Switch>
+      <Route path="/login">
+          <TemplateClean  title="Acesso restrito" Component={Login} />
+      </Route>
+      <TemplateDefault>  
+        <Route exact path="/customers/edit/:id">
+          <TemplatePage  title="Editar Clientes" Component={CustomersEdit} />
         </Route>
-        <Route path="/customers/add">
-          <TemplatePage key="2" title="Cadastro de Clientes" Component={CustomersRegister} />
+        <Route exact path="/customers/add">
+          <TemplatePage  title="Cadastro de Clientes" Component={CustomersRegister} />
         </Route>
-        <Route path="/customers">
-          <TemplatePage key="2" title="Lista de Clientes" Component={CustomersList} />
+        <Route exact path="/customers">
+          <TemplatePage  title="Lista de Clientes" Component={CustomersList} />
         </Route>
-        <Route path="/">
-          <TemplatePage key="1" title="Página Inicial" Component={Home}  />
+        <Route exact path="/">
+          <TemplatePage  title="Página Inicial" Component={Home}  />
         </Route>
-      </Switch>
-    </TemplateDefault>
+      </TemplateDefault>
+    </Switch>
   </Router> 
   
 );
