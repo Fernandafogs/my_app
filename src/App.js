@@ -14,8 +14,11 @@ import CustomersRegister from './pages/customers/Register';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
+
 const App = () => { 
+  
 return (
+
   <Router>
     <Switch>
       <Route path="/login">
@@ -32,7 +35,7 @@ return (
           <TemplatePage  title="Lista de Clientes" Component={CustomersList} />
         </Route>
         <Route exact path="/">
-          <TemplatePage  title="Página Inicial" Component={Home}  />
+            <TemplatePage  title="Página Inicial" Component={Home}  />
         </Route>
       </TemplateDefault>
     </Switch>

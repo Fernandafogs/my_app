@@ -1,12 +1,22 @@
 import { useState } from "react";
 import { TextField, Box, Button, Typography } from "@mui/material";
+import { useHistory } from "react-router-dom";
+
+import useAuth from "../state/auth";
+
+
 
 const Login = () => {
+    const history = useHistory();
 
     const [form, setForm] = useState({
         email: "",
         password: "",
     })
+
+    const [isLoading, setIsLoading] = useState(false)
+
+    const { setUser } = useAuth();
 
     const handleInputChange = e => {
         const { name, value } = e.target;
@@ -18,8 +28,18 @@ const Login = () => {
     }
 
     const handleFormSubmit = e => {
-        console.log(form);
+        setIsLoading(true)
+
+        setTimeout(() => {
+            setUser({
+                logged: true,
+                email: form.email,
+            })
+
+            history.push("/")
+        }, 4000)
     }
+    
 
   return (
     <Box
@@ -54,7 +74,11 @@ const Login = () => {
       </div>
       <div style={{ margin: "16px" }}>
         <Button variant="contained" color="primary" onClick={handleFormSubmit}>
-          Entrar
+            {
+                isLoading
+                ? "Aguarde..."
+                : "Entrar"
+            }
         </Button>
       </div>
     </Box>

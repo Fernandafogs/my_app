@@ -23,7 +23,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 import useStyles from './Header.style';
 
-const Header = () => {  
+const Header = ({ user }) => {  
     const classes = useStyles();
     const history = useHistory();
 
@@ -54,7 +54,12 @@ const Header = () => {
                     <Typography variant="h6" className={classes.title}sx={{ flexGrow: 1, marginLeft: 5 }}>
                         My App
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {
+                        user.logged
+                        ? <Typography variant="h6" sx={{ flexGrow: 1, marginLeft: 5 }}>{user.email}</Typography>
+                        : <Button color="inherit">Login</Button>
+
+                    }
                 </Toolbar>
             </AppBar>
             <Drawer    
